@@ -153,6 +153,14 @@ client.on('interactionCreate', async (interaction) => {
     cooluser.send({embeds: [ozelcevap]}).catch((er) => {
       console.error('Hata:', er)
     });
-})  
+})
+
+process.on("unhandledRejection", (reason) => {
+  console.log(`Birisi geçersiz id girmeyi denedi`)
+})
+
+process.on("unhandledRejection", async (error) => {
+  return console.log(`Birisi geçersiz id girmeyi denedi`)
+})
 
 client.login(Giris || process.env.token)
